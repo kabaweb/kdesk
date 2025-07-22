@@ -1,0 +1,31 @@
+name: Build kdesk for Windows
+
+on:
+  push:
+    branches:
+      - main  # ou qualquer branch que deseja monitorar
+
+jobs:
+  build:
+    runs-on: windows-latest  # Use o runner para Windows
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Rust
+        uses: actions/setup-rust@v1
+        with:
+          rust-version: stable
+
+      - name: Install dependencies
+        run: |
+          choco install cmake
+          choco install vcpkg
+          vcpkg install libvpx libyuv opus aom
+
+      - name: Build kdesk
+        run: cargo build --release
+
+      - name: Package kdesk
+        run: cargo bundle --release --target x86_64-pc-windows-msvc
