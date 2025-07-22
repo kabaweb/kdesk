@@ -116,18 +116,18 @@ mod test {
         assert!(get_custom_server_from_string("rustdesk.exe").is_err());
         assert!(get_custom_server_from_string("rustdesk").is_err());
         assert_eq!(
-            get_custom_server_from_string("rustdesk-host=server.example.net.exe").unwrap(),
+            get_custom_server_from_string("rustdesk-host=138.0.196.68.exe").unwrap(),
             CustomServer {
-                host: "server.example.net".to_owned(),
+                host: "138.0.196.68".to_owned(),
                 key: "".to_owned(),
                 api: "".to_owned(),
                 relay: "".to_owned(),
             }
         );
         assert_eq!(
-            get_custom_server_from_string("rustdesk-host=server.example.net,.exe").unwrap(),
+            get_custom_server_from_string("rustdesk-host=138.0.196.68,.exe").unwrap(),
             CustomServer {
-                host: "server.example.net".to_owned(),
+                host: "138.0.196.68".to_owned(),
                 key: "".to_owned(),
                 api: "".to_owned(),
                 relay: "".to_owned(),
@@ -136,50 +136,50 @@ mod test {
         // key in these tests is "foobar.,2" base64 encoded
         assert_eq!(
             get_custom_server_from_string(
-                "rustdesk-host=server.example.net,api=abc,key=Zm9vYmFyLiwyCg==.exe"
+                "rustdesk-host=138.0.196.68,api=abc,key=chnKVuWapZfkwnsiMnK2xHj+jMhE4Trqy5WITNtLV9Y=.exe"
             )
             .unwrap(),
             CustomServer {
-                host: "server.example.net".to_owned(),
-                key: "Zm9vYmFyLiwyCg==".to_owned(),
+                host: "138.0.196.68".to_owned(),
+                key: "chnKVuWapZfkwnsiMnK2xHj+jMhE4Trqy5WITNtLV9Y=".to_owned(),
                 api: "abc".to_owned(),
                 relay: "".to_owned(),
             }
         );
         assert_eq!(
             get_custom_server_from_string(
-                "rustdesk-host=server.example.net,key=Zm9vYmFyLiwyCg==,.exe"
+                "rustdesk-host=138.0.196.68,key=chnKVuWapZfkwnsiMnK2xHj+jMhE4Trqy5WITNtLV9Y=,.exe"
             )
             .unwrap(),
             CustomServer {
-                host: "server.example.net".to_owned(),
-                key: "Zm9vYmFyLiwyCg==".to_owned(),
+                host: "138.0.196.68".to_owned(),
+                key: "chnKVuWapZfkwnsiMnK2xHj+jMhE4Trqy5WITNtLV9Y=".to_owned(),
                 api: "".to_owned(),
                 relay: "".to_owned(),
             }
         );
         assert_eq!(
             get_custom_server_from_string(
-                "rustdesk-host=server.example.net,key=Zm9vYmFyLiwyCg==,relay=server.example.net.exe"
+                "rustdesk-host=138.0.196.68,key=chnKVuWapZfkwnsiMnK2xHj+jMhE4Trqy5WITNtLV9Y=,relay=138.0.196.68.exe"
             )
             .unwrap(),
             CustomServer {
-                host: "server.example.net".to_owned(),
-                key: "Zm9vYmFyLiwyCg==".to_owned(),
+                host: "138.0.196.68".to_owned(),
+                key: "chnKVuWapZfkwnsiMnK2xHj+jMhE4Trqy5WITNtLV9Y=".to_owned(),
                 api: "".to_owned(),
-                relay: "server.example.net".to_owned(),
+                relay: "138.0.196.68".to_owned(),
             }
         );
         assert_eq!(
             get_custom_server_from_string(
-                "rustdesk-Host=server.example.net,Key=Zm9vYmFyLiwyCg==,RELAY=server.example.net.exe"
+                "rustdesk-Host=138.0.196.68,Key=chnKVuWapZfkwnsiMnK2xHj+jMhE4Trqy5WITNtLV9Y=,RELAY=138.0.196.68.exe"
             )
             .unwrap(),
             CustomServer {
-                host: "server.example.net".to_owned(),
-                key: "Zm9vYmFyLiwyCg==".to_owned(),
+                host: "138.0.196.68".to_owned(),
+                key: "chnKVuWapZfkwnsiMnK2xHj+jMhE4Trqy5WITNtLV9Y=".to_owned(),
                 api: "".to_owned(),
-                relay: "server.example.net".to_owned(),
+                relay: "138.0.196.68".to_owned(),
             }
         );
         let lic = CustomServer {
