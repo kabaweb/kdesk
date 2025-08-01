@@ -35,6 +35,9 @@ jobs:
         with:
           flutter-version: '3.13.0'
           channel: 'stable'
+          
+      - name: Disable Flutter telemetry
+        run: flutter config --no-analytics
 
       - uses: nttld/setup-ndk@v1
         id: setup-ndk
@@ -61,9 +64,6 @@ jobs:
                pkg-config \
                wget
           flutter pub get
-          
-      - name: Disable Flutter telemetry
-        run: flutter config --no-analytics
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@v1
