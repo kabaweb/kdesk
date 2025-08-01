@@ -59,6 +59,19 @@ android {
         main.proto.includes += "message.proto"
     }
 
+    flavorDimensions "default"
+    productFlavors {
+        custom_name {
+            dimension "default"
+            applicationIdSuffix ".custom"
+            resValue "string", "app_name", "kdesk Custom"
+        }
+        original {
+            dimension "default"
+            resValue "string", "app_name", "kdesk"
+        }
+    }
+
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -88,6 +101,9 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules'
+        }
+        debug {
+            applicationIdSuffix '.debug'
         }
     }
 }
