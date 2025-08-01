@@ -85,7 +85,7 @@ jobs:
       - name: Build APK (Custom Name)
         run: |
           chmod +x flutter/build_android_custom.sh
-          cd flutter && ./build_android_custom.sh
+          ./flutter/build_android_custom.sh
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
