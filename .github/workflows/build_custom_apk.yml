@@ -38,7 +38,7 @@ jobs:
           cd flutter && ./build_android_custom.sh
 
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: custom-apk
           path: flutter/build/app/outputs/flutter-apk/*.apk
