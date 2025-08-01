@@ -59,18 +59,6 @@ android {
         main.proto.includes += "message.proto"
     }
 
-    flavorDimensions "default"
-    productFlavors {
-        custom_name {
-            dimension "default"
-            applicationIdSuffix ".custom"
-            resValue "string", "app_name", "kdesk Custom"
-        }
-        original {
-            dimension "default"
-            resValue "string", "app_name", "kdesk"
-        }
-    }
 
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
