@@ -31,6 +31,9 @@ jobs:
         run: |
           sudo apt-get -y install clang cmake ninja-build pkg-config libgtk-3-dev
           flutter pub get
+          
+      - name: Disable Flutter telemetry
+        run: flutter config --no-analytics
 
       - name: Build APK (Custom Name)
         run: |
